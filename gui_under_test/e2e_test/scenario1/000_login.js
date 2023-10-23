@@ -3,7 +3,7 @@ module.exports = async ( { params , root , page , actions ,expect} )=>{
     
     //ログインページ
     await page.goto( params.url , {waitUntil: "domcontentloaded"} );
-    
+    await actions.screenshot( "go to loginpage." );
     //loginpageの判定
     let titleSelector = await root.$("head > title")
     let title = await (await titleSelector.getProperty('textContent')).jsonValue()
